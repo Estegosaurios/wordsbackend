@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=wordsbackend
+      - POSTGRES_PASSWORD=wordsbackend
+      - POSTGRES_DB=wordsbackend
+  web:
+    build: .
+    command: sh ./entrypoint.sh
+    volumes:
+      - .:/opt/wordsbackend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+

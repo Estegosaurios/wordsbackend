@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'wordsbackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'wordsbackend',
+        'USER': 'wordsbackend',
+        'PASSWORD': 'wordsbackend',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
