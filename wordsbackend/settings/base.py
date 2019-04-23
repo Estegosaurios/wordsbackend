@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+
+    'words',
 ]
 
 MIDDLEWARE = [
@@ -68,22 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wordsbackend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wordsbackend',
-        'USER': 'wordsbackend',
-        'PASSWORD': 'wordsbackend',
-        'HOST': 'db',
-        'PORT': 5432,
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
