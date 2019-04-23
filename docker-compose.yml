@@ -1,7 +1,10 @@
-version: '3'
+version: '3.5'
+
 services:
   db:
     image: postgres
+    networks:
+      - applications
     restart: always
     environment:
       - POSTGRES_USER=wordsbackend
@@ -9,11 +12,19 @@ services:
       - POSTGRES_DB=wordsbackend
   web:
     build: .
+    networks:
+      - applications
     command: sh ./entrypoint.sh
     volumes:
       - .:/opt/wordsbackend
-    ports:
-      - "8000:8000"
+    environment:
+      - VIRTUAL_HOST=words.estegosaurios.com
+    expose:
+      - "8000"
     depends_on:
       - db
 
+networks:
+  applications:
+    name: applications
+    driver: bridge
